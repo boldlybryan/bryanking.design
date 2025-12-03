@@ -9,11 +9,10 @@ export default function Home() {
           <Image className="h-full" src="/thumbnails/stendig-calendar.gif" alt="" width={1000} height={1000} />
         </Link>
       </div>
-      <div className="border w-full aspect-16/10 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors cursor-pointer">
+      <div className="border w-full aspect-16/10  cursor-pointer">
         <Link href="/about" className="h-full w-full flex items-center justify-center">About Me</Link>
       </div>
-      <div className="border w-full aspect-16/10">
-      </div>
+      <div className="border w-full aspect-16/10"></div>
       <div className="border w-full aspect-16/10"></div>
       <div className="border w-full aspect-16/10"></div>
       <div className="border w-full aspect-16/10"></div>
