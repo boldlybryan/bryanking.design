@@ -22,7 +22,6 @@ export default function Home() {
       <div className="border border-neutral-500 w-full aspect-16/10"></div>
       <div className="border border-neutral-500 w-full aspect-16/10"></div>
       <div className="border border-neutral-500 w-full aspect-16/10"></div>
-      <div className="border border-neutral-500 w-full aspect-16/10"></div>
     </div>
   );
 }

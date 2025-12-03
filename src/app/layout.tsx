@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import Header from "./components/Header";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Bryan King | Software Design & Engineering",
@@ -39,6 +40,7 @@ export default function RootLayout({
             {children}
           </ThemeProvider>
         </main>
+        <Analytics />
       </body>
     </html>
   );
