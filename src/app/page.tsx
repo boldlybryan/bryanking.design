@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="p-4 font-medium leading-5">
+    <main className="p-4 font-medium tracking-tight leading-5">
       <div className="mb-12">
         <h1>Bryan King</h1>
         <p>Software Design & Engineering</p>
