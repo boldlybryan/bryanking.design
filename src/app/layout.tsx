@@ -13,9 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/iyj7hae.css" />
+      </head>
+      <body className="antialiased">
         {children}
       </body>
     </html>
