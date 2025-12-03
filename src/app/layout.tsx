@@ -30,7 +30,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/iyj7hae.css" />
       </head>
       <body className="antialiased">
-        <main className="p-4 font-medium tracking-tight leading-5">
+        <main className="p-4 font-medium tracking-tight leading-5 max-w-[1600px] mx-auto">
           <ThemeProvider>
             <div className="fixed top-4 right-4 z-50">
               <ThemeToggle />
