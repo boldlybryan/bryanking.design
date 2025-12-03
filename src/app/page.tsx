@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <main className="p-4 font-medium tracking-tight leading-5">
@@ -8,10 +10,12 @@ export default function Home() {
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <div className="border w-full aspect-16/10 object-fill">
-          <img className="h-full" src="/thumbnails/stendig-calendar.gif" alt="" />
+          <Image className="h-full" src="/thumbnails/stendig-calendar.gif" alt="" width={1000} height={1000} />
         </div>
-        <div className="border w-full aspect-16/10"></div>
-        <div className="border w-full aspect-16/10"></div>
+        <div className="border w-full aspect-16/10">
+        </div>
+        <div className="border w-full aspect-16/10">
+        </div>
         <div className="border w-full aspect-16/10"></div>
         <div className="border w-full aspect-16/10"></div>
         <div className="border w-full aspect-16/10"></div>
