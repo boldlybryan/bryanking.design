@@ -1,12 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  
   /* Neue Haas Grotesk font families */
   --font-display: "neue-haas-grotesk-display", sans-serif;
   --font-text: "neue-haas-grotesk-text", sans-serif;
+  
+  /* Default to light theme */
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Explicit light theme */
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Explicit dark theme */
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* System theme - follows OS preference */
+[data-theme="system"] {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 @theme inline {
@@ -17,13 +43,6 @@
   --font-family-display: var(--font-display);
   --font-family-text: var(--font-text);
   --font-family-sans: var(--font-text);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
