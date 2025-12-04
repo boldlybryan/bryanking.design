@@ -18,7 +18,7 @@ export default function QueryPage() {
           </select>
           <input type="text" className="p-2 text-3xl border-b border-neutral-500 hover:bg-neutral-500 cursor-pointer" placeholder="placeholder"/>
         </div>
-        <button className="self-center w-8 h-8 border border-neutral-700 cursor-pointer">+</button>
+        <button className="self-center w-8 h-8 rounded-full border border-neutral-700 cursor-pointer">+</button>
       </div>
     </div>
   );
