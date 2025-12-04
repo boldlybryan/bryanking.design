@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 
 // Attribute types for context-aware operators
 type AttributeType = "numeric" | "text" | "date" | "categorical";
@@ -286,6 +286,48 @@ function createEmptyRow(): AttributeRow {
 
 export default function QueryPage() {
   const [rows, setRows] = useState<AttributeRow[]>([createEmptyRow()]);
+  const [nlQuery, setNlQuery] = useState("");
+  const [isParsing, startParsing] = useTransition();
+  const [parseError, setParseError] = useState<string | null>(null);
+
+  const parseNaturalLanguage = async () => {
+    if (!nlQuery.trim()) return;
+
+    setParseError(null);
+
+    startParsing(async () => {
+      try {
+        const response = await fetch("/api/parse-segment", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: nlQuery }),
+        });
+
+        if (!response.ok) {
+          const error = await response.json();
+          throw new Error(error.error || "Failed to parse query");
+        }
+
+        const { attributes } = await response.json();
+
+        if (attributes && attributes.length > 0) {
+          // Convert parsed attributes to rows with IDs
+          const newRows: AttributeRow[] = attributes.map(
+            (attr: { attribute: string; operator: string; value: string }) => ({
+              id: generateId(),
+              attribute: attr.attribute,
+              operator: attr.operator,
+              value: attr.value,
+            })
+          );
+          setRows(newRows);
+          setNlQuery(""); // Clear input on success
+        }
+      } catch (error) {
+        setParseError(error instanceof Error ? error.message : "Failed to parse query");
+      }
+    });
+  };
 
   const addRow = () => {
     setRows([...rows, createEmptyRow()]);
@@ -314,6 +356,65 @@ export default function QueryPage() {
 
   return (
     <div className="border-t border-neutral-800 pt-4">
+      {/* Natural Language Input */}
+      <div className="mb-12">
+        <h1 className="ml-3 mb-6">Describe your audience</h1>
+        <div className="flex gap-4">
+          <input
+            type="text"
+            value={nlQuery}
+            onChange={(e) => setNlQuery(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && parseNaturalLanguage()}
+            placeholder="e.g., single men who make over 250000 and live in urban areas"
+            className="flex-1 p-4 text-2xl bg-transparent border border-neutral-700 hover:border-neutral-500 focus:border-neutral-400 focus:outline-none transition-colors placeholder:text-neutral-600"
+            disabled={isParsing}
+          />
+          <button
+            onClick={parseNaturalLanguage}
+            disabled={isParsing || !nlQuery.trim()}
+            className="px-8 py-4 text-xl border border-neutral-700 hover:bg-neutral-800 hover:border-neutral-500 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors flex items-center gap-2"
+          >
+            {isParsing ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  />
+                </svg>
+                Parsing...
+              </>
+            ) : (
+              "Parse"
+            )}
+          </button>
+        </div>
+        {parseError && (
+          <p className="mt-3 text-red-400 text-sm">{parseError}</p>
+        )}
+      </div>
+
+      {/* Divider */}
+      <div className="flex items-center gap-4 mb-12">
+        <div className="flex-1 border-t border-neutral-700" />
+        <span className="text-neutral-500 text-sm uppercase tracking-wider">or build manually</span>
+        <div className="flex-1 border-t border-neutral-700" />
+      </div>
+
       {/* Segment Summary */}
       {rows.some((r) => r.attribute && r.operator && r.value) && (
         <div className="mb-12 p-4 border border-neutral-700 bg-neutral-900/50">
@@ -342,7 +443,7 @@ export default function QueryPage() {
         </div>
       )}
 
-      <h1 className="ml-3 mb-10">Add attributes to build your segment</h1>
+      <h2 className="ml-3 mb-10 text-neutral-400">Add attributes to build your segment</h2>
 
       <div className="flex flex-col gap-2">
         {rows.map((row, index) => {
