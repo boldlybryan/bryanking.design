@@ -64,25 +64,25 @@ export default function Home() {
         </div>
         <div className="grid-home mb-8 pb-8 border-b border-neutral-700">
           <CasePreview
-            title="Project Name"
+            title="Flagstar.com Redesign"
+            description="Lorem ipsum dolor & accessibility overhaul"
+            image=""
+            link="#"
+          />
+          <CasePreview
+            title="Flagstar.com Search"
             description="Lorem ipsum dolor"
             image=""
             link="#"
           />
           <CasePreview
-            title="Project Name"
+            title="Regionalization Interstitial"
             description="Lorem ipsum dolor"
             image=""
             link="#"
           />
           <CasePreview
-            title="Project Name"
-            description="Lorem ipsum dolor"
-            image=""
-            link="#"
-          />
-          <CasePreview
-            title="Project Name"
+            title="Branch & ATM Locator"
             description="Lorem ipsum dolor"
             image=""
             link="#"
@@ -104,7 +104,12 @@ export default function Home() {
             <Link href="https://codepen.io/brykng/pen/oywrLv" className="h-full w-full flex items-center justify-center">
             <Image className="h-full" src="/thumbnails/stadttheatre.gif" alt="" width={1000} height={1000} />
             </Link>
-          </div>   
+          </div>  
+          <div className="border border-neutral-500 w-full aspect-16/10  cursor-pointer">
+            <Link href="https://codepen.io/collection/AZyZMQ?cursor=eyJwYWdlIjoxfQ==" className="h-full w-full flex items-center justify-center">
+              CodePen Cincinnati Presentations
+            </Link>
+          </div>             
         </div>
       </div>
     </div>
