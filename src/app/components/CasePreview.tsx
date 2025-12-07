@@ -15,7 +15,7 @@ export default function CasePreview({ title, description, image, link }: CasePre
         <h3 className="heading">{title}</h3>
         <p className="body opacity-80">{description}</p>
       </div>
-      <Image className="border border-neutral-500 w-full aspect-16/10 object-fill mt-2" width={1000} height={1000} src={image} alt=""/>
+      <Image className="border border-neutral-300 dark:border-neutral-700 w-full aspect-16/10 object-cover object-top object-left mt-2" width={1000} height={1000} src={image} alt=""/>
     </Link>
   );
 }

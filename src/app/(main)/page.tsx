@@ -14,13 +14,25 @@ export default function Home() {
           <CasePreview
             title="Next-gen Prototype"
             description="A Ruby on Rails proof-of-concept to align the business for on the next 10 years"
-            image=""
+            image="/thumbnails/navistone/prototype.png"
+            link="#"
+          />
+          <CasePreview
+            title="Website Analytics"
+            description="Lorem ipsum dolor"
+            image="/thumbnails/navistone/website-analytics.jpg"
+            link="#"
+          />
+          <CasePreview
+            title="Business Analytics"
+            description="Lorem ipsum dolor"
+            image="/thumbnails/navistone/business-analytics.jpg"
             link="#"
           />
           <CasePreview
             title="Iris Design System"
             description="Lorem ipsum dolor"
-            image=""
+            image="/thumbnails/navistone/design-system.png"
             link="#"
           />
         </div>
@@ -46,7 +58,7 @@ export default function Home() {
           <CasePreview
             title="Creative Assistant Onboarding"
             description="Lorem ipsum dolor"
-            image="/thumbnails/mailchimp/marketing-dashboard.png"
+            image="/thumbnails/mailchimp/import-brand.png"
             link="/work/mailchimp/creative-assistant-onboarding"
           />
           <CasePreview
@@ -66,25 +78,25 @@ export default function Home() {
           <CasePreview
             title="Flagstar.com Redesign"
             description="Lorem ipsum dolor & accessibility overhaul"
-            image=""
+            image="/thumbnails/flagstar/home-page.png"
             link="#"
           />
           <CasePreview
             title="Flagstar.com Search"
             description="Lorem ipsum dolor"
-            image=""
+            image="/thumbnails/flagstar/search-results.png"
             link="#"
           />
           <CasePreview
             title="Regionalization Interstitial"
             description="Lorem ipsum dolor"
-            image=""
+            image="/thumbnails/flagstar/product-page.png"
             link="#"
           />
           <CasePreview
             title="Branch & ATM Locator"
             description="Lorem ipsum dolor"
-            image=""
+            image="/thumbnails/flagstar/locator.png"
             link="#"
           />
         </div>
