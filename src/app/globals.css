@@ -79,8 +79,12 @@ body {
   @apply max-w-[1600px] mx-auto;
 }
 
+.supertitle {
+  @apply font-family-display text-3xl xl:text-5xl leading-none;
+}
+
 .title {
-  @apply font-family-display text-3xl;
+  @apply font-family-display text-2xl xl:text-3xl;
 }
 
 .heading {
