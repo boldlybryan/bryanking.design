@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="mb-8">
+    <header className="container mb-8">
       <Link href="/">
         <div className="">
           <h1>Bryan King</h1>

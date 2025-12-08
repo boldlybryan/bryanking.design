@@ -75,6 +75,10 @@ body {
   font-style: italic;
 }
 
+.container {
+  @apply max-w-[1600px] mx-auto;
+}
+
 .title {
   @apply font-family-display text-3xl;
 }

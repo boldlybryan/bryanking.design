@@ -4,7 +4,7 @@ import CasePreview from "../components/CasePreview";
 
 export default function Home() {
   return (
-    <div>
+    <div className="container">
       <div>
         <div className="flex gap-2 items-baseline">
           <h2 className="title mb-2">NaviStone, Inc</h2>
