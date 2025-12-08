@@ -88,7 +88,7 @@ export function ThemeToggle() {
       aria-label={`Current theme: ${themeLabels[theme]}. Click to switch theme.`}
       title={themeLabels[theme]}
     >
-      <Icon className="w-5 h-5" />
+      <Icon className="w-4 h-4" />
     </button>
   );
 }
