@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Override Tailwind's dark variant to use .dark class */
+@variant dark (&:where(.dark *, .dark));
+
 :root {
   /* Neue Haas Grotesk font families */
   --font-display: "neue-haas-grotesk-display", sans-serif;

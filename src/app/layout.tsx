@@ -15,6 +15,11 @@ const themeScript = `
     const stored = localStorage.getItem('theme');
     const theme = stored && ['system', 'light', 'dark'].includes(stored) ? stored : 'system';
     document.documentElement.setAttribute('data-theme', theme);
+    
+    // Also set dark class for Tailwind dark: variants
+    const isDark = theme === 'dark' || 
+      (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (isDark) document.documentElement.classList.add('dark');
   })();
 `;
 

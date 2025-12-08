@@ -42,6 +42,24 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem(STORAGE_KEY, theme);
+
+    // Determine if dark mode should be active
+    const updateDarkClass = () => {
+      const isDark =
+        theme === "dark" ||
+        (theme === "system" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.classList.toggle("dark", isDark);
+    };
+
+    updateDarkClass();
+
+    // Listen for OS theme changes when using system theme
+    if (theme === "system") {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      mediaQuery.addEventListener("change", updateDarkClass);
+      return () => mediaQuery.removeEventListener("change", updateDarkClass);
+    }
   }, [theme, mounted]);
 
   const setTheme = useCallback((newTheme: Theme) => {
