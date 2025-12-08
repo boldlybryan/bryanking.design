@@ -11,9 +11,9 @@ export default function Header() {
         </div>
       </Link>
       <div className="flex flex-col xl:col-start-3">
-        <Link href="#">Method</Link>
-        <Link href="#">History</Link>
-        <Link href="#">Influences</Link>
+        <Link href="/about">About</Link>
+        <Link href="/work">Work</Link>
+        <Link href="/influences">Influences</Link>
       </div>
       <div className="flex flex-col">
         <Link href="https://twitter.com/bryan_king" target="_blank">Twitter</Link>
