@@ -1,4 +1,4 @@
-export default function LabLayout({
+export default function ExperimentsLayout({
   children,
 }: {
   children: React.ReactNode;
