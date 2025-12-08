@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <nav className="flex gap-4">
         <Link href="#">Experiments</Link>
-        <Link href="#">Colophon</Link>
+        <Link href="/colophon">Colophon</Link>
       </nav>
     </footer>
  )
