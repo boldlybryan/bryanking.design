@@ -7,9 +7,8 @@ export default function Home() {
     <div className="container">
       <div className="mt-32 mb-8 pb-8 xl:mt-64 xl:mb-8 xl:pb-16 grid-home border-b border-neutral-800">
         <div className="xl:col-start-3 col-span-2">
-          <h1 className="supertitle mb-2">Product Designer & Engineer with 10 years shipping B2B software.</h1>
-          <p className="text-lg">Track record of being early: design systems (2017), accessibility (2018), AI tooling (2021).</p>
-          <p className="text-lg">Now I prototype in code to de-risk product decisions before they're expensive.</p>
+          <h1 className="supertitle mb-2">Product Designer & Engineer with a decade of shipping B2B software.</h1>
+          <p className="text-lg">Track record of being early: design systems (2017), accessibility (2018), AI tooling (2021). Now I prototype in code to de-risk product decisions before they're expensive.</p>
         </div>
       </div>
       <div>
