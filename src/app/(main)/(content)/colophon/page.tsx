@@ -16,7 +16,7 @@ export default function ColophonPage() {
         <p>Max Miedenger's Neue Haas Grotesk (Display & Text) served by Adobe Fonts. This typeface has exceptional kerning, so I don't have to much around with letter spacing. It also gives me the Swiss modernist Massimo Vignelli vibe that I'm going for.</p>
         <p className="mt-4">I use the heavier medium weight of Neue Haas Text in dark mode, because it helps the text render better.</p>
         <h2 className="heading mt-8 mb-2">Et cetera</h2>
-        <p>I built this site by hand in Cursor, and delegated some small refactoring tasks to a coding agent. More and more, I'm finding that I have to be stroking the keys in order to be productive. Otherwise, it's too easy to prompt your way off a cliff.</p>
+        <p className="mb-16">I built this site by hand in Cursor, and delegated some small refactoring tasks to a coding agent. More and more, I'm finding that I have to be stroking the keys in order to be productive. Otherwise, it's too easy to prompt your way off a cliff.</p>
       </div>
     </>
   );
