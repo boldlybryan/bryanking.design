@@ -4,7 +4,7 @@ export default function ColophonPage() {
   return (
     <>
       <h1 className="supertitle mb-8">Colophon</h1>
-      <div className="text-base/6">
+      <div className="text-base/6 pr-8">
         <h2 className="heading mt-2 mb-2">Technical</h2>
         <p>The Next.js 16 app router powers this website, which is hosted on Vercel. React Server Components are exclusively used to keep the DX the way I like it: big blocks of plain ole HTML that point to well-architected CSS.</p>
         <p className="mt-4">Speaking of style, I'm always deploying the latest version of Tailwind CSS, with a custom file of preset classes, to avoid the dreaded className soup. Check out <Link href="https://github.com/boldlybryan/bryanking.design/blob/main/src/app/globals.css" className="underline">my globals.css on GitHub</Link> to see how I keep things tidy.</p>

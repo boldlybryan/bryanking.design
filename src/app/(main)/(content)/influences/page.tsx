@@ -1,6 +1,6 @@
 export default function InfluencesPage() {
   return (
-    <div className="pr-8">
+    <div className="pr-8 text-base/6">
       <h1 className="supertitle mb-8">Influences</h1>
       <p className="mb-8">Inspiration comes from far and wide. I'm a big believer in carrying forward worthwhile tradition, and find much of my thinking from ghosts.</p>
 
