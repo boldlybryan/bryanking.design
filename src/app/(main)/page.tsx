@@ -25,19 +25,19 @@ export default function Home() {
           />
           <CasePreview
             title="Website Analytics"
-            description="Lorem ipsum dolor"
+            description="Real-time visitor tracking and behavioral insights dashboard"
             image="/thumbnails/navistone/website-analytics.jpg"
             link="#"
           />
           <CasePreview
             title="Business Analytics"
-            description="Lorem ipsum dolor"
+            description="Cross-channel performance metrics for campaign optimization"
             image="/thumbnails/navistone/business-analytics.jpg"
             link="#"
           />
           <CasePreview
             title="Iris Design System"
-            description="Lorem ipsum dolor"
+            description="Complete design system in Figma + Vue + Storybook, built in 4 weeks"
             image="/thumbnails/navistone/design-system.png"
             link="#"
           />
@@ -51,25 +51,25 @@ export default function Home() {
         <div className="grid-home mb-8 pb-10 border-b border-neutral-800">
           <CasePreview
             title="Custom Reports Prototype"
-            description="Lorem ipsum dolor"
+            description="CodePen prototype that validated query builder UX before 6-month engineering investment"
             image="/thumbnails/mailchimp/custom-report.png"
             link="/work/mailchimp/custom-reports"
           />
           <CasePreview
             title="Analytics Dashboard"
-            description="Lorem ipsum dolor"
+            description="Mailchimp's first cross-campaign analytics view, shipped to millions of users"
             image="/thumbnails/mailchimp/marketing-dashboard.png"
             link="/work/mailchimp/analytics-dashboard"
           />
           <CasePreview
             title="Creative Assistant Onboarding"
-            description="Lorem ipsum dolor"
+            description="AI-powered brand asset training and creative guardrails (2021, pre-ChatGPT)"
             image="/thumbnails/mailchimp/import-brand.png"
             link="/work/mailchimp/creative-assistant-onboarding"
           />
           <CasePreview
             title="Creative Assistant Sample Brand"
-            description="Lorem ipsum dolor"
+            description="Interactive sample brand for experimenting with AI creative tools"
             image="/thumbnails/mailchimp/sample-brand.png"
             link="/work/mailchimp/creative-assistant-sample"
           />
@@ -83,25 +83,25 @@ export default function Home() {
         <div className="grid-home mb-8 pb-10 border-b border-neutral-800">
           <CasePreview
             title="Flagstar.com Redesign"
-            description="Lorem ipsum dolor & accessibility overhaul"
+            description="Responsive redesign with WCAG AA compliance across thousands of pages"
             image="/thumbnails/flagstar/home-page.png"
             link="#"
           />
           <CasePreview
             title="Flagstar.com Search"
-            description="Lorem ipsum dolor"
+            description="Site-wide search with filtering and relevance ranking"
             image="/thumbnails/flagstar/search-results.png"
             link="#"
           />
           <CasePreview
-            title="Regionalization Interstitial"
-            description="Lorem ipsum dolor"
+            title="Regionalized Product Pages"
+            description="Location-based product availability and routing"
             image="/thumbnails/flagstar/product-page.png"
             link="#"
           />
           <CasePreview
             title="Branch & ATM Locator"
-            description="Lorem ipsum dolor"
+            description="Interactive map with filtering, directions, and branch details"
             image="/thumbnails/flagstar/locator.png"
             link="#"
           />
