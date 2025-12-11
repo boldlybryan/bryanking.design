@@ -37,7 +37,7 @@ export default function RootLayout({
       <body className="antialiased">
         <main className="p-4 tracking-tight leading-5 max-w-[1600px] mx-auto flex flex-col min-h-screen">
           <ThemeProvider>
-            <div className="fixed top-3 right-3 z-50">
+            <div className="fixed top-4 right-4 z-50 hidden sm:block">
               <ThemeToggle />
             </div>
             {children}
