@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Set runtime to edge for better performance
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 // Schema information to help the LLM understand our data structure
 const SCHEMA_CONTEXT = `
 You are a marketing segment query parser. Convert natural language queries into structured segment attributes.
@@ -87,81 +91,98 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content: SCHEMA_CONTEXT,
-          },
-          {
-            role: "user",
-            content: query,
-          },
-        ],
-        temperature: 0.1,
-        max_tokens: 1000,
-      }),
-    });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
 
-    if (!response.ok) {
-      const error = await response.json();
-      console.error("OpenAI API error:", error);
-      return NextResponse.json(
-        { error: "Failed to parse query with AI" },
-        { status: 500 }
-      );
-    }
-
-    const data = await response.json();
-    const content = data.choices?.[0]?.message?.content;
-
-    if (!content) {
-      return NextResponse.json(
-        { error: "No response from AI" },
-        { status: 500 }
-      );
-    }
-
-    // Parse the JSON response
     try {
-      // Clean up the response - remove markdown code blocks if present
-      let cleanContent = content.trim();
-      if (cleanContent.startsWith("```json")) {
-        cleanContent = cleanContent.slice(7);
-      } else if (cleanContent.startsWith("```")) {
-        cleanContent = cleanContent.slice(3);
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content: SCHEMA_CONTEXT,
+            },
+            {
+              role: "user",
+              content: query,
+            },
+          ],
+          temperature: 0.1,
+          max_tokens: 1000,
+        }),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        const error = await response.json();
+        console.error("OpenAI API error:", error);
+        return NextResponse.json(
+          { error: "Failed to parse query with AI" },
+          { status: 500 }
+        );
       }
-      if (cleanContent.endsWith("```")) {
-        cleanContent = cleanContent.slice(0, -3);
+
+      const data = await response.json();
+      const content = data.choices?.[0]?.message?.content;
+
+      if (!content) {
+        return NextResponse.json(
+          { error: "No response from AI" },
+          { status: 500 }
+        );
       }
-      cleanContent = cleanContent.trim();
 
-      const attributes = JSON.parse(cleanContent);
+      // Parse the JSON response
+      try {
+        // Clean up the response - remove markdown code blocks if present
+        let cleanContent = content.trim();
+        if (cleanContent.startsWith("```json")) {
+          cleanContent = cleanContent.slice(7);
+        } else if (cleanContent.startsWith("```")) {
+          cleanContent = cleanContent.slice(3);
+        }
+        if (cleanContent.endsWith("```")) {
+          cleanContent = cleanContent.slice(0, -3);
+        }
+        cleanContent = cleanContent.trim();
 
-      if (!Array.isArray(attributes)) {
-        throw new Error("Response is not an array");
+        const attributes = JSON.parse(cleanContent);
+
+        if (!Array.isArray(attributes)) {
+          throw new Error("Response is not an array");
+        }
+
+        // Validate each attribute
+        const validatedAttributes = attributes.filter(
+          (attr: { attribute?: string; operator?: string; value?: string }) =>
+            attr.attribute && attr.operator && attr.value !== undefined
+        );
+
+        return NextResponse.json({ attributes: validatedAttributes });
+      } catch (parseError) {
+        console.error("Failed to parse AI response:", content, parseError);
+        return NextResponse.json(
+          { error: "Failed to parse AI response" },
+          { status: 500 }
+        );
       }
-
-      // Validate each attribute
-      const validatedAttributes = attributes.filter(
-        (attr: { attribute?: string; operator?: string; value?: string }) =>
-          attr.attribute && attr.operator && attr.value !== undefined
-      );
-
-      return NextResponse.json({ attributes: validatedAttributes });
-    } catch (parseError) {
-      console.error("Failed to parse AI response:", content, parseError);
-      return NextResponse.json(
-        { error: "Failed to parse AI response" },
-        { status: 500 }
-      );
+    } catch (fetchError) {
+      clearTimeout(timeoutId);
+      if (fetchError instanceof Error && fetchError.name === 'AbortError') {
+        return NextResponse.json(
+          { error: "Request timeout" },
+          { status: 504 }
+        );
+      }
+      throw fetchError;
     }
   } catch (error) {
     console.error("Parse segment error:", error);

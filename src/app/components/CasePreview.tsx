@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import Lightbox from "./Lightbox";
+import { useState, memo, lazy, Suspense } from "react";
+
+// Lazy load Lightbox component - only loads when needed
+const Lightbox = lazy(() => import("./Lightbox"));
 
 interface CasePreviewProps {
   title: string;
@@ -12,7 +14,7 @@ interface CasePreviewProps {
   link: string;
 }
 
-export default function CasePreview({ title, description, image, link }: CasePreviewProps) {
+function CasePreview({ title, description, image, link }: CasePreviewProps) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   return (
@@ -28,18 +30,27 @@ export default function CasePreview({ title, description, image, link }: CasePre
       >
         <Image
           className="border border-neutral-300 dark:border-neutral-700 w-full aspect-16/10 object-cover object-top object-left"
-          width={1000}
-          height={1000}
+          width={800}
+          height={500}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           src={image}
           alt={title}
+          loading="lazy"
         />
       </button>
-      <Lightbox
-        src={image}
-        alt={title}
-        isOpen={isLightboxOpen}
-        onClose={() => setIsLightboxOpen(false)}
-      />
+      {isLightboxOpen && (
+        <Suspense fallback={null}>
+          <Lightbox
+            src={image}
+            alt={title}
+            isOpen={isLightboxOpen}
+            onClose={() => setIsLightboxOpen(false)}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }
+
+// Memoize component to prevent unnecessary re-renders
+export default memo(CasePreview);
