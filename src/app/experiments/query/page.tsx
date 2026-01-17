@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useTransition, useMemo, useCallback } from "react";
 
 // Attribute types for context-aware operators
 type AttributeType = "numeric" | "text" | "date" | "categorical";
@@ -329,19 +329,22 @@ export default function QueryPage() {
     });
   };
 
-  const addRow = () => {
-    setRows([...rows, createEmptyRow()]);
-  };
+  const addRow = useCallback(() => {
+    setRows((prevRows) => [...prevRows, createEmptyRow()]);
+  }, []);
 
-  const removeRow = (id: string) => {
-    if (rows.length > 1) {
-      setRows(rows.filter((row) => row.id !== id));
-    }
-  };
+  const removeRow = useCallback((id: string) => {
+    setRows((prevRows) => {
+      if (prevRows.length > 1) {
+        return prevRows.filter((row) => row.id !== id);
+      }
+      return prevRows;
+    });
+  }, []);
 
-  const updateRow = (id: string, field: keyof AttributeRow, value: string) => {
-    setRows(
-      rows.map((row) => {
+  const updateRow = useCallback((id: string, field: keyof AttributeRow, value: string) => {
+    setRows((prevRows) =>
+      prevRows.map((row) => {
         if (row.id !== id) return row;
 
         // If attribute changes, reset operator and value
@@ -352,7 +355,7 @@ export default function QueryPage() {
         return { ...row, [field]: value };
       })
     );
-  };
+  }, []);
 
   return (
     <div className="border-t border-neutral-800 pt-4">
@@ -416,13 +419,15 @@ export default function QueryPage() {
       </div>
 
       {/* Segment Summary */}
-      {rows.some((r) => r.attribute && r.operator && r.value) && (
-        <div className="mb-12 p-4 border border-neutral-700 bg-neutral-900/50">
-          <h2 className="text-sm uppercase tracking-wider text-neutral-500 mb-3">Segment Preview</h2>
-          <p className="text-lg">
-            {rows
-              .filter((r) => r.attribute && r.operator && r.value)
-              .map((r, i) => {
+      {useMemo(() => {
+        const validRows = rows.filter((r) => r.attribute && r.operator && r.value);
+        if (validRows.length === 0) return null;
+
+        return (
+          <div className="mb-12 p-4 border border-neutral-700 bg-neutral-900/50">
+            <h2 className="text-sm uppercase tracking-wider text-neutral-500 mb-3">Segment Preview</h2>
+            <p className="text-lg">
+              {validRows.map((r, i) => {
                 const attrConfig = getAttributeConfig(r.attribute);
                 const attrLabel = attrConfig?.label || r.attribute;
                 const opLabel =
@@ -439,9 +444,10 @@ export default function QueryPage() {
                   </span>
                 );
               })}
-          </p>
-        </div>
-      )}
+            </p>
+          </div>
+        );
+      }, [rows])}
 
       <h2 className="ml-3 mb-10 text-neutral-400">Add attributes to build your segment</h2>
 

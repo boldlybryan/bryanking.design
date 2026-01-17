@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, memo } from "react";
 
 interface LightboxProps {
   src: string;
@@ -10,7 +10,7 @@ interface LightboxProps {
   onClose: () => void;
 }
 
-export default function Lightbox({ src, alt, isOpen, onClose }: LightboxProps) {
+function Lightbox({ src, alt, isOpen, onClose }: LightboxProps) {
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -68,11 +68,17 @@ export default function Lightbox({ src, alt, isOpen, onClose }: LightboxProps) {
           alt={alt}
           width={1920}
           height={1200}
+          sizes="90vw"
           className="max-w-full max-h-[90vh] w-auto h-auto object-contain"
+          priority
+          quality={90}
         />
       </div>
     </div>
   );
 }
+
+// Memoize to prevent unnecessary re-renders
+export default memo(Lightbox);
 
 

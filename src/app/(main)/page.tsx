@@ -112,7 +112,15 @@ export default function Home() {
         <div className="grid-home mb-8 pb-10">
           <div className="border border-neutral-800 w-full aspect-16/10 object-fill">
             <Link href="https://stendigcal.vercel.app" target="_blank">
-              <Image className="h-full" src="/thumbnails/stendig-calendar.gif" alt="" width={1000} height={1000} />
+              <Image
+                className="h-full"
+                src="/thumbnails/stendig-calendar.gif"
+                alt="Stendig Calendar"
+                width={800}
+                height={500}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading="lazy"
+              />
             </Link>
           </div>
           <div className="border border-neutral-700 w-full aspect-16/10  cursor-pointer">
@@ -120,9 +128,17 @@ export default function Home() {
           </div>
           <div className="border border-neutral-700 w-full aspect-16/10  cursor-pointer">
             <Link href="https://codepen.io/brykng/pen/oywrLv" className="h-full w-full flex items-center justify-center">
-            <Image className="h-full" src="/thumbnails/stadttheatre.gif" alt="" width={1000} height={1000} />
+            <Image
+              className="h-full"
+              src="/thumbnails/stadttheatre.gif"
+              alt="Stadt Theatre"
+              width={800}
+              height={500}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              loading="lazy"
+            />
             </Link>
-          </div>  
+          </div>
           <div className="border border-neutral-700 w-full aspect-16/10  cursor-pointer">
             <Link href="https://codepen.io/collection/AZyZMQ?cursor=eyJwYWdlIjoxfQ==" className="h-full w-full flex items-center justify-center">
               CodePen Cincinnati Presentations

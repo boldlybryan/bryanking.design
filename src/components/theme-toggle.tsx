@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme, type Theme } from "./theme-provider";
+import { memo } from "react";
 
 // Icon components for each theme
 function SunIcon({ className }: { className?: string }) {
@@ -76,7 +77,7 @@ const themeLabels: Record<Theme, string> = {
   system: "System theme",
 };
 
-export function ThemeToggle() {
+function ThemeToggleComponent() {
   const { theme, cycleTheme } = useTheme();
 
   const Icon = themeIcons[theme];
@@ -92,6 +93,9 @@ export function ThemeToggle() {
     </button>
   );
 }
+
+// Memoize to prevent unnecessary re-renders
+export const ThemeToggle = memo(ThemeToggleComponent);
 
 
 

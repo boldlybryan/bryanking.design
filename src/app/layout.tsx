@@ -32,6 +32,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link
+          rel="preconnect"
+          href="https://use.typekit.net"
+          crossOrigin="anonymous"
+        />
         <link rel="stylesheet" href="https://use.typekit.net/iyj7hae.css" />
       </head>
       <body className="antialiased">

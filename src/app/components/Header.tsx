@@ -1,11 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, memo, useCallback } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-export default function Header() {
+function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   return (
     <header className="container mb-8 border-b border-neutral-800 pb-4">
@@ -20,7 +28,7 @@ export default function Header() {
         </Link>
         
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={toggleMenu}
           className="absolute top-0 right-0 p-2 -m-2"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
@@ -55,9 +63,9 @@ export default function Header() {
         <div className="sm:hidden">
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col">
-              <Link href="/" onClick={() => setIsOpen(false)}>Work</Link>
-              <Link href="/about" onClick={() => setIsOpen(false)}>About</Link>
-              <Link href="/influences" onClick={() => setIsOpen(false)}>Influences</Link>
+              <Link href="/" onClick={closeMenu}>Work</Link>
+              <Link href="/about" onClick={closeMenu}>About</Link>
+              <Link href="/influences" onClick={closeMenu}>Influences</Link>
             </div>
             <div className="flex flex-col">
               <Link href="https://twitter.com/bryan_king" target="_blank">Twitter</Link>
@@ -94,3 +102,6 @@ export default function Header() {
     </header>
   );
 }
+
+// Memoize to prevent unnecessary re-renders
+export default memo(Header);
