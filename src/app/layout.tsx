@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Bryan King | Software Design & Engineering",
@@ -43,7 +43,11 @@ export default function RootLayout({
             {children}
           </ThemeProvider>
         </main>
-        <Analytics />
+        <Script
+          src="https://cdn.usefathom.com/script.js"
+          data-site="FFORNEGQ"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
