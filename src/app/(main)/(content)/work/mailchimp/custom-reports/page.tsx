@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  CaseCallout,
   CaseFigure,
   CaseHeader,
   CaseMetaList,
@@ -12,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Mailchimp Custom Reports | Bryan King",
   description:
-    "CodePen prototype and UserTesting that validated Mailchimp Custom Reports before ~6 months of engineering.",
+    "CodePen prototype that validated query builder UX before 6-month engineering investment.",
 };
 
 export default function CustomReportsPage() {
@@ -23,83 +22,54 @@ export default function CustomReportsPage() {
         company="Intuit Mailchimp"
         timeline="2021–2022"
         role="Senior Product Designer (contract)"
-        summary="Mockups lie about query builders. I made a CodePen you could use, ran UserTesting on it, and we stopped guessing. Preview stayed up while you changed the query. Eng spent ~6 months building that—not discovering in month five that the UX was wrong. Shipped pixel-for-pixel."
+        summary="CodePen prototype that validated query builder UX before 6-month engineering investment"
       />
 
       <CaseMetaList
         items={[
           {
-            label: "How",
-            value: "Working CodePen + UserTesting",
-          },
-          {
-            label: "The call",
-            value: "Preview by default",
-          },
-          {
-            label: "What we avoided",
-            value: "~6 months of eng on a wrong interaction model",
+            label: "Method",
+            value: "CodePen functional prototype + UserTesting",
           },
           {
             label: "Ship bar",
-            value: "Pixel-for-pixel from the prototype",
+            value: "Nearly pixel-for-pixel",
+          },
+          {
+            label: "Interaction",
+            value: "Preview-by-default",
           },
         ]}
       />
 
-      <CaseSection id="context" title="Expensive to get wrong">
-        <p>
-          Dashboards answer the questions you already know. Custom Reports had to answer
-          the weird ones—the cut nobody productized yet. That flexibility is real eng
-          time. Get the interaction model wrong and you burn a half-year and customers
-          still live in CSV.
-        </p>
-        <p>
-          Nobody was arguing about whether the buttons looked nice. The question was: can
-          someone build a report, understand it, and trust it before they hit save?
-        </p>
-      </CaseSection>
-
-      <CaseSection id="prototype" title="CodePen">
-        <p>
-          I built a functional prototype in CodePen. Filters, fields, live feedback.
-          Research participants used the thing—they didn&apos;t narrate a Figma file.
-        </p>
+      <CaseSection id="notes" title="Notes">
+        <ul className="list-disc list-inside space-y-2">
+          <li>
+            Partnered with a design manager to de-risk Custom Reports via CodePen prototype
+            + UserTesting before a multi-month eng commitment
+          </li>
+          <li>Production shipped nearly pixel-for-pixel</li>
+          <li>Preview-by-default became the interaction standard</li>
+          <li>
+            <Link href="/experiments/preview-by-default" className="underline">
+              /experiments/preview-by-default
+            </Link>
+          </li>
+          <li>
+            Still need my own write-up — what broke in testing, why preview-by-default, what
+            we argued about.
+          </li>
+        </ul>
         <CaseFigure
           src="/thumbnails/mailchimp/custom-report.png"
           caption="Custom Reports"
           note="Drop CodePen link or prototype recording here if it still exists"
         />
-        <p>
-          UserTesting on that prototype ended a lot of meetings early. You watch someone
-          stall on an affordance and the debate is over. We changed the model while change
-          was still cheap.
-        </p>
-        <CaseCallout>
-          <p>Stop debating the mockup. Put something clickable in front of people.</p>
-        </CaseCallout>
-      </CaseSection>
-
-      <CaseSection id="preview" title="Preview by default">
-        <p>
-          Don&apos;t make people configure in the dark. Keep the report preview up while
-          the query changes. That one decision sorted layout, empty states, errors, and
-          what &ldquo;saved&rdquo; even meant relative to the working query.
-        </p>
-        <p>
-          Eng&apos;s job got clearer: build a live read of the query, not a form that
-          occasionally coughs up a chart.
-        </p>
         <CaseFigure caption="[Screenshot: Preview-by-default — query + live preview]" />
         <CaseFigure caption="[Screenshot: UserTesting insight → UI change]" />
       </CaseSection>
 
-      <CaseSection id="outcome" title="Shipped">
-        <p>
-          Validated model. ~6 months of engineering. Pixel-for-pixel where it mattered. We
-          didn&apos;t find out in month five that the UX was wrong.
-        </p>
-        <p className="pt-2">
+      <p className="mb-12">
           <Link href="/work/mailchimp/analytics-dashboard" className="underline">
             Marketing Dashboard
           </Link>
@@ -110,7 +80,6 @@ export default function CustomReportsPage() {
             Creative Assistant
           </Link>
         </p>
-      </CaseSection>
 
       <CaseNextSteps
         items={[
