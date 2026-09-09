@@ -23,7 +23,7 @@ export default function CreativeAssistantPage() {
         company="Intuit Mailchimp"
         timeline="2021"
         role="Senior Product Designer (contract). Designed it. Coded the React onboarding."
-        summary="This was 2021. Nobody had a default mental model for chatting with a model yet. Creative Assistant still needed a first run that didn't poison every generative output. I designed and built the React onboarding: get a brand kit in, or play on a sample brand first."
+        summary="This was 2021. Nobody knew how to talk to a model yet. Creative Assistant still needed a first run that didn't make every output look broken. I designed the onboarding and wrote the React: get a brand kit in, or play on a sample brand first."
       />
 
       <CaseMetaList
@@ -51,7 +51,7 @@ export default function CreativeAssistantPage() {
         <p>
           Bad brand context in, weird output out, user blames the AI. Yeah, duh—except in
           2021 we were still inventing the onboarding for that failure mode. There was no
-          consumer muscle memory for this product category.
+          consumer habit for this product category yet.
         </p>
         <p>
           Two jobs on day one. Import a real brand kit. Or give people a sample brand so
@@ -63,7 +63,7 @@ export default function CreativeAssistantPage() {
         <p>
           Logos, colors, the assets that actually constrain creative later. People need to
           know what matters and what&apos;s optional. Partial uploads happen. Validation
-          fails. Users still want to continue. I designed those states and wrote the React.
+          fails. Users still want to continue. Those states lived in the React I wrote.
         </p>
         <CaseFigure
           src="/thumbnails/mailchimp/import-brand.png"
