@@ -7,7 +7,14 @@ export default function ExperimentsPage() {
       <h1 className="heading mb-2">Experiments</h1>
       <ul className="list-disc list-inside">
         <li>
-          <Link href="/experiments/query/" className='underline'>Segment Builder</Link>
+          <Link href="/experiments/preview-by-default/" className="underline">
+            Preview by default
+          </Link>
+        </li>
+        <li>
+          <Link href="/experiments/query/" className="underline">
+            Segment Builder
+          </Link>
         </li>
       </ul>
     </div>

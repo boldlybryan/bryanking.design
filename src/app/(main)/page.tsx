@@ -127,7 +127,16 @@ export default function Home() {
             <Link href="https://codepen.io/collection/AZyZMQ?cursor=eyJwYWdlIjoxfQ==" className="h-full w-full flex items-center justify-center">
               CodePen Cincinnati Presentations
             </Link>
-          </div>             
+          </div>
+          <div className="border border-neutral-700 w-full aspect-16/10 cursor-pointer">
+            <Link
+              href="/experiments/preview-by-default"
+              className="h-full w-full flex flex-col items-center justify-center gap-1 px-4 text-center"
+            >
+              <span>Preview by default</span>
+              <span className="body text-neutral-500">Mailchimp Custom Reports pattern</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
