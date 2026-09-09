@@ -11,95 +11,91 @@ import {
 export const metadata: Metadata = {
   title: "Mailchimp Marketing Dashboard | Bryan King",
   description:
-    "Mailchimp's first aggregated marketing analytics dashboard—default landing for millions of users, built under real date-range constraints.",
+    "Mailchimp's first aggregated marketing dashboard—default landing for millions, designed under ugly date-range backend limits.",
 };
 
 export default function AnalyticsDashboardPage() {
   return (
     <article className="pr-8 pb-8">
       <CaseHeader
-        title="Mailchimp's first aggregated marketing dashboard"
+        title="Marketing Dashboard"
         company="Intuit Mailchimp"
         timeline="2021–2022"
         role="Senior Product Designer (contract)"
-        summary="Analytics lived inside individual campaigns. I designed the first cross-campaign dashboard, and it became the default landing page for millions of users. Backend date-range limits shaped half the product decisions."
+        summary="Mailchimp made you check performance one campaign at a time. That's not how anyone runs a business. We built the first dashboard that pulled it together, under ugly backend limits on date ranges, and it became the default landing for millions of people."
       />
 
       <CaseMetaList
         items={[
           {
             label: "Shipped",
-            value: "First aggregated analytics view; default landing",
+            value: "First aggregated analytics view. Default landing.",
           },
           {
-            label: "Users",
+            label: "Audience",
             value: "Millions of Mailchimp customers",
           },
           {
-            label: "Hard constraint",
-            value: "Backend limits on date ranges and comparisons",
+            label: "The ugly part",
+            value: "Backend couldn't support every date range people wanted",
           },
           {
-            label: "Team",
-            value: "Design org with critiques, PM, eng; led solo 6–8 weeks post-reorg, then onboarded two designers",
+            label: "Room I was in",
+            value: "Critiques, design manager, peers, PM, eng. Solo for 6–8 weeks post-reorg, then onboarded two designers.",
           },
         ]}
       />
 
-      <CaseSection id="context" title="The problem">
+      <CaseSection id="context" title="One campaign at a time">
         <p>
-          Customers don&apos;t run a business one campaign at a time. The product made them
-          act like they did. Performance hid behind individual sends. Want a period
-          comparison? Screenshot a few screens or dump CSV into a spreadsheet.
+          Performance lived behind individual sends. Want last month vs this month? Open
+          three screens. Export a CSV. Squint. Marketers don&apos;t experience their
+          business that way, but the product forced them to.
         </p>
         <p>
-          We needed one place that answered &ldquo;how are we doing?&rdquo; honestly enough
-          to be the first screen people saw after login.
+          The ask was simple and annoying: one aggregated view that was honest enough to
+          be the first thing you saw after login.
         </p>
       </CaseSection>
 
-      <CaseSection id="constraints" title="Date ranges were the real design problem">
+      <CaseSection id="constraints" title="Date ranges, not pixels">
         <p>
-          The backend couldn&apos;t support every range and comparison people wanted. If we
-          faked completeness, the dashboard would train people to distrust it. So the UI
-          had to show what the system could actually compute—clear range controls,
-          aggregation rules that matched the data, and no pretend flexibility.
+          Half the product decisions were backend limits. The system couldn&apos;t query
+          every range or comparison people asked for. Fake flexibility trains people to
+          distrust the page. So the UI showed what we could actually compute—range
+          controls that told the truth, aggregation that matched the data, no pretend
+          power-user mode.
         </p>
         <CaseFigure
           src="/thumbnails/mailchimp/marketing-dashboard.png"
-          caption="Marketing Dashboard — aggregated performance as the default landing"
-          note="Add annotated frames: date-range controls, empty/loading/error, drill-through to campaign detail"
+          caption="Marketing Dashboard"
+          note="Need annotated frames: date ranges, empty/loading/error, drill-through"
         />
         <p>
-          Hierarchy was simple on purpose: how am I doing, then compare, then dig into a
-          campaign. Empty states for new accounts. Drill-through into existing campaign
-          analytics without inventing a second mental model.
+          Layout priority was boring on purpose. How am I doing. Then compare. Then open a
+          campaign. Empty states for new accounts. Drill into existing campaign analytics
+          without inventing a second product.
         </p>
-        <CaseFigure caption="[Screenshot: Date-range constraint UI — limits shown clearly]" />
+        <CaseFigure caption="[Screenshot: Date-range limits shown clearly]" />
         <CaseFigure caption="[Screenshot: Dashboard → campaign drill-through]" />
       </CaseSection>
 
-      <CaseSection id="team" title="How the work actually happened">
+      <CaseSection id="team" title="The room">
         <p>
-          This lived inside Mailchimp&apos;s design org. Critiques with a design manager and
-          peers. Shared design system. PM and eng with their own roadmaps. Tradeoffs got
-          aired early or they died in build.
+          Critiques with a design manager and peers. Shared Mailchimp system. PM and eng
+          with their own roadmaps. If a tradeoff didn&apos;t survive critique, it wasn&apos;t
+          surviving build either.
         </p>
         <p>
-          After a reorg I led the surface solo for about six to eight weeks, then onboarded
-          two designers onto the work. Same critique culture, same system constraints—
-          just more hands once the direction was set.
-        </p>
-        <p>
-          Visual design stayed in Mailchimp&apos;s system. The new thing was the product
-          model: performance across campaigns, not only inside them.
+          After a reorg I ran the surface alone for six or eight weeks, then onboarded two
+          designers. Same critiques. Same system. More hands once the direction was set.
         </p>
       </CaseSection>
 
-      <CaseSection id="outcome" title="What shipped">
+      <CaseSection id="outcome" title="Shipped">
         <p>
-          First aggregated analytics view at Mailchimp. Shipped as the default landing for
-          millions of users.
+          First aggregated analytics view. Default landing for millions of users. That&apos;s
+          the whole punchline.
         </p>
         <p className="pt-2">
           <Link href="/work/mailchimp/custom-reports" className="underline">

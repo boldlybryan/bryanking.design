@@ -12,106 +12,100 @@ import {
 export const metadata: Metadata = {
   title: "Mailchimp Creative Assistant | Bryan King",
   description:
-    "Designed and coded React onboarding for Mailchimp Creative Assistant—brand kit and sample brand—AI creative tooling before ChatGPT.",
+    "Designed and coded React onboarding for Mailchimp Creative Assistant—brand kit and sample brand—before ChatGPT.",
 };
 
 export default function CreativeAssistantPage() {
   return (
     <article className="pr-8 pb-8">
       <CaseHeader
-        title="Creative Assistant onboarding (before ChatGPT)"
+        title="Creative Assistant"
         company="Intuit Mailchimp"
         timeline="2021"
-        role="Senior Product Designer (contract) — designed and coded the React onboarding"
-        summary="If brand setup is wrong, every generative output looks wrong. I designed and built the React onboarding for brand kit import and a sample brand—in 2021, before people already knew how to talk to a model."
+        role="Senior Product Designer (contract). Designed it. Coded the React onboarding."
+        summary="This was 2021. Nobody had a default mental model for chatting with a model yet. Creative Assistant still needed a first run that didn't poison every generative output. I designed and built the React onboarding: get a brand kit in, or play on a sample brand first."
       />
 
       <CaseMetaList
         items={[
           {
-            label: "What I shipped",
+            label: "What I did",
             value: "Designed + coded React onboarding",
           },
           {
             label: "Surfaces",
-            value: "Brand kit import · Sample brand",
+            value: "Brand kit import. Sample brand.",
           },
           {
-            label: "Context",
-            value: "2021 AI creative product — pre-ChatGPT",
+            label: "When",
+            value: "2021 — pre-ChatGPT",
           },
           {
-            label: "Team",
-            value: "Mailchimp design + eng partners",
+            label: "Room",
+            value: "Mailchimp design + eng",
           },
         ]}
       />
 
-      <CaseSection id="context" title="Onboarding is the product">
+      <CaseSection id="context" title="Setup or die">
         <p>
-          Early AI creative tools die in setup. Bad brand context in → weird output out →
-          user blames the model. In 2021 nobody had a default mental model for this. We
-          had to teach the product behavior ourselves.
+          Bad brand context in, weird output out, user blames the AI. Yeah, duh—except in
+          2021 we were still inventing the onboarding for that failure mode. There was no
+          consumer muscle memory for this product category.
         </p>
         <p>
-          Day one needed two things: get a real brand kit into the system, and give people
-          a sample brand so they could try the tool without risking their live identity.
+          Two jobs on day one. Import a real brand kit. Or give people a sample brand so
+          they could mess around without risking their live identity.
         </p>
       </CaseSection>
 
-      <CaseSection id="brand-kit" title="Brand kit import">
+      <CaseSection id="brand-kit" title="Brand kit">
         <p>
-          Brand kit is training data with a UI. People need to know what matters,
-          what&apos;s optional, and how those inputs will constrain creative later.
+          Logos, colors, the assets that actually constrain creative later. People need to
+          know what matters and what&apos;s optional. Partial uploads happen. Validation
+          fails. Users still want to continue. I designed those states and wrote the React.
         </p>
         <CaseFigure
           src="/thumbnails/mailchimp/import-brand.png"
-          caption="Brand kit import — feeding brand assets into Creative Assistant"
+          caption="Brand kit import"
         />
-        <p>
-          I designed the flow and wrote it in React—loading, validation, and the messy
-          middle where uploads are partial but the user still wants to continue.
-        </p>
-        <CaseFigure caption="[Screenshot: Brand kit partial/complete states and creative guardrail explanation]" />
+        <CaseFigure caption="[Screenshot: partial/complete brand kit states]" />
       </CaseSection>
 
       <CaseSection id="sample-brand" title="Sample brand">
         <p>
-          Not everyone shows up with a tidy brand system. The sample brand is a sandbox:
-          poke at AI creative against a coherent fake identity, learn the loops, then
-          switch to your own kit.
+          Not everyone shows up with a tidy brand system. The sample brand is a sandbox—
+          try the tools against a coherent fake identity, learn the loops, switch to yours
+          later.
         </p>
         <CaseFigure
           src="/thumbnails/mailchimp/sample-brand.png"
-          caption="Sample brand — try the tools without risking a live brand"
+          caption="Sample brand"
         />
         <CaseCallout>
           <p>
-            It also made demos reliable. Design, PM, and eng could argue about model
-            behavior against the same reference instead of whoever&apos;s brand happened to
-            be in the build.
+            Also: demos stopped depending on whoever&apos;s brand happened to be in the
+            build that week. Design, PM, and eng could argue about the same reference.
           </p>
         </CaseCallout>
       </CaseSection>
 
-      <CaseSection id="craft" title="Designed and coded">
+      <CaseSection id="craft" title="I wrote the React">
         <p>
-          Building onboarding in React meant fewer handoff gaps. Missing logos, weird
-          contrast, incomplete kits—those show up constantly, and they look like model bugs
-          if the UI doesn&apos;t handle them.
+          Missing logos. Odd contrast. Incomplete kits. Those look like model bugs if the
+          UI shrugs. Building onboarding in code meant fewer handoff gaps and fewer
+          &ldquo;we&apos;ll fix it in eng&rdquo; moments that never get fixed.
         </p>
         <p>
-          Critiques kept the trust and clarity bar honest. Eng constrained what the
-          assistant could actually use. Shared system language kept it feeling like
-          Mailchimp, not a lab bolt-on.
+          Critiques kept the trust bar honest. Eng said what the assistant could actually
+          use. Shared system so it felt like Mailchimp, not a lab experiment glued on.
         </p>
       </CaseSection>
 
-      <CaseSection id="outcome" title="What shipped">
+      <CaseSection id="outcome" title="Shipped">
         <p>
-          Working onboarding for an AI creative product before the industry had a standard
-          vocabulary for it. Brand kit in. Sample brand to learn on. React code that
-          shipped.
+          Working onboarding for an AI creative product before the industry had vocabulary
+          for it. Brand kit. Sample brand. React that shipped.
         </p>
         <p className="pt-2">
           <Link href="/work/mailchimp/analytics-dashboard" className="underline">
@@ -127,7 +121,7 @@ export default function CreativeAssistantPage() {
             ·
           </span>
           <Link href="/work/navistone" className="underline">
-            NaviStone platform
+            NaviStone
           </Link>
         </p>
       </CaseSection>

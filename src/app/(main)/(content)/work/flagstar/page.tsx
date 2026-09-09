@@ -11,50 +11,50 @@ import {
 export const metadata: Metadata = {
   title: "Flagstar Bank | Bryan King",
   description:
-    "Front-end at Flagstar Bank: design system, WCAG AA after an ADA lawsuit, and the marketing tools behind a large bank site.",
+    "Front-end at Flagstar: design system, WCAG AA after an ADA lawsuit, and the marketing tools behind a big bank site.",
 };
 
 export default function FlagstarPage() {
   return (
     <article className="pr-8 pb-8">
       <CaseHeader
-        title="Design system, accessibility, and marketing tools at Flagstar"
+        title="Flagstar"
         company="Flagstar Bank"
         timeline="2015–2021"
-        role="Front-end Developer — HTML/CSS systems, a11y, marketing site features"
-        summary="Started as an intern. Became the HTML & CSS person for Flagstar's marketing web platform. Componentized the UI, pushed WCAG AA after an ADA lawsuit, and shipped the tools marketers used to publish."
+        role="Front-end Developer. HTML, CSS, a11y, the marketing site's guts."
+        summary="I started as an intern and somehow became the HTML & CSS person for Flagstar's marketing web platform. Componentized the UI, dragged us toward WCAG AA after an ADA lawsuit, and built the tools marketers used to publish without filing a ticket every time."
       />
 
       <CaseMetaList
         items={[
           {
-            label: "Focus",
+            label: "Mostly",
             value: "Design system, WCAG AA / ADA, authoring tools, site features",
           },
           {
             label: "Team",
-            value: "Tight-knit agile squad — high output",
+            value: "Tight-knit agile squad. High output. Lived by the book more than most.",
           },
           {
-            label: "Reuse",
-            value: "Tokenized system stood up Desert Community Bank in a couple of weeks",
+            label: "Weird win",
+            value: "Re-skinned tokens and stood up Desert Community Bank in a couple of weeks",
           },
         ]}
       />
 
-      <CaseSection id="system" title="Design system without the ceremony">
+      <CaseSection id="system" title="Stop reinventing buttons">
         <p>
-          The site was stuck in legacy jQuery patterns. I slowly moved us to a
-          componentized, tokenized front end—flexbox, modern CSS, fewer dependencies.
-          Practical payoff: we stood up Desert Community Bank&apos;s marketing site in a
+          Legacy jQuery everywhere. I spent years slowly turning that into a componentized,
+          tokenized front end—flexbox, modern CSS, fewer dependencies. Not glamorous. It
+          paid off when we stood up Desert Community Bank&apos;s marketing site in a
           couple of weeks by re-skinning the tokens.
         </p>
         <CaseFigure
           src="/thumbnails/flagstar/home-page.png"
-          caption="Flagstar.com — responsive marketing homepage"
+          caption="Flagstar.com"
         />
         <p>
-          Archives:{" "}
+          Waybacks if you&apos;re curious:{" "}
           <Link
             href="https://web.archive.org/web/20181227102529/https://www.flagstar.com/"
             className="underline"
@@ -77,23 +77,22 @@ export default function FlagstarPage() {
         </p>
       </CaseSection>
 
-      <CaseSection id="a11y" title="WCAG AA after an ADA lawsuit">
+      <CaseSection id="a11y" title="Then the lawsuit">
         <p>
-          Accessibility stopped being optional after an ADA lawsuit. I worked WCAG Level AA
-          into components and templates—keyboard paths, semantics, contrast, and the boring
-          regression work that keeps a big site honest.
+          Accessibility stopped being a nice-to-have after an ADA lawsuit. WCAG Level AA
+          into components and templates—keyboard, semantics, contrast, and the regression
+          work nobody puts on a conference slide.
         </p>
       </CaseSection>
 
-      <CaseSection id="tools" title="Website builder & the rest of the site">
+      <CaseSection id="tools" title="A site builder before Webflow was the answer">
         <p>
-          Before Webflow and Framer were the default answer, we built an internal site
-          builder: components, layouts, drag-and-drop, style variants. Design systems
-          matter when non-engineers can publish with them.
+          We built an internal website builder: components, layouts, drag-and-drop, style
+          variants. Design systems matter when a marketer can publish with them.
         </p>
         <p>
-          Other shipping: branch & ATM locator, localized products and mortgage rates,
-          loan officer profiles, live chat, site search, and plenty more.
+          Also shipped: branch & ATM locator, localized products and mortgage rates, loan
+          officer profiles, live chat, site search. A lot of bank website.
         </p>
         <CaseFigure
           src="/thumbnails/flagstar/search-results.png"
@@ -109,21 +108,21 @@ export default function FlagstarPage() {
         />
       </CaseSection>
 
-      <CaseSection id="outcome" title="What stuck">
+      <CaseSection id="outcome" title="Six years">
         <p>
-          Six years on a large, regulated marketing site. Learned how to ship inside a
-          high-trust eng team. The design-system and accessibility habits I still use
-          started here.
+          Large regulated marketing site. High-trust eng team. This is where I learned
+          production discipline, design systems that ship, and accessibility that isn&apos;t
+          a polish pass.
         </p>
         <p className="pt-2">
           <Link href="/work/navistone" className="underline">
-            NaviStone platform
+            NaviStone
           </Link>
           <span className="mx-2 opacity-50" aria-hidden>
             ·
           </span>
           <Link href="/work/mailchimp/analytics-dashboard" className="underline">
-            Mailchimp work
+            Mailchimp
           </Link>
         </p>
       </CaseSection>

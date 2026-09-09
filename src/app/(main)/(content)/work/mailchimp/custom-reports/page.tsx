@@ -12,98 +12,92 @@ import {
 export const metadata: Metadata = {
   title: "Mailchimp Custom Reports | Bryan King",
   description:
-    "CodePen prototype and UserTesting that validated Mailchimp Custom Reports before a six-month engineering build.",
+    "CodePen prototype and UserTesting that validated Mailchimp Custom Reports before ~6 months of engineering.",
 };
 
 export default function CustomReportsPage() {
   return (
     <article className="pr-8 pb-8">
       <CaseHeader
-        title="Custom Reports: prove the UX before six months of eng"
+        title="Custom Reports"
         company="Intuit Mailchimp"
         timeline="2021–2022"
-        role="Senior Product Designer (contract) — UX, functional prototype, research"
-        summary="A flexible query builder is expensive to get wrong. I built a working CodePen prototype, ran UserTesting on it, and locked preview-by-default. That validated the interaction model before ~6 months of engineering. Shipped pixel-for-pixel."
+        role="Senior Product Designer (contract)"
+        summary="Mockups lie about query builders. I made a CodePen you could use, ran UserTesting on it, and we stopped guessing. Preview stayed up while you changed the query. Eng spent ~6 months building that—not discovering in month five that the UX was wrong. Shipped pixel-for-pixel."
       />
 
       <CaseMetaList
         items={[
           {
-            label: "Method",
-            value: "CodePen functional prototype + UserTesting",
+            label: "How",
+            value: "Working CodePen + UserTesting",
           },
           {
-            label: "Decision",
+            label: "The call",
             value: "Preview by default",
           },
           {
-            label: "Risk cut",
-            value: "~6 months of eng validated before build-out",
+            label: "What we avoided",
+            value: "~6 months of eng on a wrong interaction model",
           },
           {
             label: "Ship bar",
-            value: "Pixel-for-pixel from the validated prototype",
+            value: "Pixel-for-pixel from the prototype",
           },
         ]}
       />
 
-      <CaseSection id="context" title="The problem">
+      <CaseSection id="context" title="Expensive to get wrong">
         <p>
           Dashboards answer the questions you already know. Custom Reports had to answer
-          the ones you don&apos;t—the cut the product hasn&apos;t productized yet. That
-          flexibility costs real eng time. A bad interaction model burns a half-year and
-          customers still export CSV.
+          the weird ones—the cut nobody productized yet. That flexibility is real eng
+          time. Get the interaction model wrong and you burn a half-year and customers
+          still live in CSV.
         </p>
         <p>
-          The question wasn&apos;t whether we could make a query builder look tidy. It was
-          whether someone could build a report, understand it, and trust it before they
-          hit save.
+          Nobody was arguing about whether the buttons looked nice. The question was: can
+          someone build a report, understand it, and trust it before they hit save?
         </p>
       </CaseSection>
 
-      <CaseSection id="prototype" title="CodePen + UserTesting">
+      <CaseSection id="prototype" title="CodePen">
         <p>
-          Static mockups lie about query builders. I built a functional CodePen prototype—
-          filters, fields, live feedback—so people could do the actual work in research
-          sessions.
+          I built a functional prototype in CodePen. Filters, fields, live feedback.
+          Research participants used the thing—they didn&apos;t narrate a Figma file.
         </p>
         <CaseFigure
           src="/thumbnails/mailchimp/custom-report.png"
-          caption="Custom Reports — query builder and report surface"
-          note="Add CodePen capture or linked prototype recording if still available"
+          caption="Custom Reports"
+          note="Drop CodePen link or prototype recording here if it still exists"
         />
         <p>
-          UserTesting ran against that prototype, not slides. You watch someone stall on
-          an affordance and the debate ends. We changed the interaction model while changes
-          were still cheap.
+          UserTesting on that prototype ended a lot of meetings early. You watch someone
+          stall on an affordance and the debate is over. We changed the model while change
+          was still cheap.
         </p>
         <CaseCallout>
-          <p>
-            When the cost of being wrong is high, put the argument in something people can
-            click.
-          </p>
+          <p>Stop debating the mockup. Put something clickable in front of people.</p>
         </CaseCallout>
       </CaseSection>
 
       <CaseSection id="preview" title="Preview by default">
         <p>
-          The big UX call: preview by default. Don&apos;t make people configure in the dark
-          and hope. Keep the report preview up while the query changes. That drove layout,
-          empty states, errors, and how a saved report related to a working query.
+          Don&apos;t make people configure in the dark. Keep the report preview up while
+          the query changes. That one decision sorted layout, empty states, errors, and
+          what &ldquo;saved&rdquo; even meant relative to the working query.
         </p>
         <p>
-          Eng had a clear target: the UI is a live read of the query, not a form that
-          sometimes spits out a chart.
+          Eng&apos;s job got clearer: build a live read of the query, not a form that
+          occasionally coughs up a chart.
         </p>
-        <CaseFigure caption="[Screenshot: Preview-by-default — query controls beside live report preview]" />
-        <CaseFigure caption="[Screenshot: UserTesting insight → UI change (annotated if possible)]" />
+        <CaseFigure caption="[Screenshot: Preview-by-default — query + live preview]" />
+        <CaseFigure caption="[Screenshot: UserTesting insight → UI change]" />
       </CaseSection>
 
-      <CaseSection id="outcome" title="What shipped">
+      <CaseSection id="outcome" title="Shipped">
         <p>
-          Engineering built the validated model. Shipped UI matched the prototype
-          pixel-for-pixel where it mattered. Six months of build, without discovering the
-          UX was wrong in month five.
+          Validated model. ~6 months of engineering. Pixel-for-pixel where it mattered. We
+          didn&apos;t find out in month five that the UX was wrong.
         </p>
         <p className="pt-2">
           <Link href="/work/mailchimp/analytics-dashboard" className="underline">

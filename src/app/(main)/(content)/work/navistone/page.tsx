@@ -12,180 +12,172 @@ import {
 export const metadata: Metadata = {
   title: "NaviStone Multi-tenant Platform | Bryan King",
   description:
-    "Turning an agency ops tool into a multi-tenant martech platform—RBAC, design systems, analytics, and production React/TypeScript.",
+    "How I helped turn NaviStone's agency ops tool into a multi-tenant platform—five-day Rails prototype, RBAC, Iris to Zenith, and the work that followed.",
 };
 
 export default function NavistonePage() {
   return (
     <article className="pr-8 pb-8">
       <CaseHeader
-        title="Turning an agency ops tool into a real platform"
+        title="NaviStone's next platform"
         company="NaviStone"
         timeline="2022–present"
-        role="Design engineer — first and only designer; product definition, UX, systems, and production React/TypeScript"
-        summary="NaviStone ran as a software-enabled services shop and had stalled. I defined how multi-tenant product should work, designed the UI, and shipped a lot of it in code. The Oct 2025 Rails prototype is what finally got the company moving."
+        role="Design engineer. First and only designer. I write the product docs, design the UI, and ship a lot of the React myself."
+        summary="NaviStone had real clients and a product that still felt like an internal ops tool. We kept saying platform. We kept shipping agency software with better screens. In October 2025 I spent about five days building a Rails app you could actually click—and I think it changed the direction of the company."
       />
 
       <CaseMetaList
         items={[
           {
-            label: "Scope",
-            value: "Platform model, RBAC, design system, analytics, ingestion, campaigns",
+            label: "What I touch",
+            value: "Product model, RBAC, design system, analytics, house-file, campaigns",
           },
           {
-            label: "Stack",
-            value: "Figma, React, TypeScript, shadcn, Storybook, Rails prototype",
+            label: "Tools",
+            value: "Figma, React, TypeScript, shadcn, Storybook, Rails, Cursor, Claude",
           },
           {
-            label: "Turning point",
-            value: "Oct 2025 Rails prototype → Apr 2026 first internal platform release",
+            label: "Dates that matter",
+            value: "Oct 2025 prototype → Apr 2026 first internal platform release",
           },
           {
-            label: "Scale",
-            value: "Analytics for ~240 clients; house-file workflows that touch PII",
+            label: "Scale, roughly",
+            value: "~240 clients on analytics; house-file flows that handle PII",
           },
         ]}
       />
 
-      <CaseSection id="context" title="Why we were stuck">
+      <CaseSection id="context" title="The loop">
         <p>
-          The product looked like an internal agency tool because that&apos;s what it was.
-          Strong domain knowledge. Real clients. But the software assumed NaviStone people
-          would always be in the middle of the work.
+          We&apos;re a direct mail software company with years of domain knowledge and a
+          stubborn habit of rebuilding the same internal tool. The UI got nicer. The
+          ownership model didn&apos;t. Advertisers still needed us in the middle. Agencies
+          still lived in our inbox. &ldquo;Platform&rdquo; was a slide, not a product.
         </p>
         <p>
-          Revenue had plateaued around the services model. Earlier &ldquo;platform&rdquo;
-          attempts kept rebuilding the same thing with nicer screens. Same ownership model.
-          Same bottlenecks. Same stall.
-        </p>
-        <p>
-          The job was to become multi-tenant SaaS—advertisers, agencies, and platform ops
-          in one system—without blowing up the work that still paid for the company.
+          Services revenue plateaued. Prior platform attempts stalled for the same reason:
+          same mental model, new paint. I got tired of that loop.
         </p>
         <CaseCallout>
-          <p>
-            I&apos;m the first and only designer. That means I write the product docs, design
-            the flows, and often build the front end. I keep decisions written down and
-            review them with eng and CS the way I learned in critiques at Mailchimp—so
-            nobody has to guess what shipped or why.
-          </p>
+          <p>I&apos;m the only designer here. That&apos;s not a flex. It&apos;s the job.</p>
         </CaseCallout>
       </CaseSection>
 
-      <CaseSection id="prototype" title="Oct 2025: the prototype that changed the conversation">
+      <CaseSection id="prototype" title="Five days in October">
         <p>
-          In October 2025 I spent about five days building a working Ruby on Rails app on
-          Render. Tailwind for UI. Cursor and Claude Sonnet for speed. Figma MCP so I
-          wasn&apos;t redrawing everything by hand. Shopify and Lob wired in for real
-          integrations.
+          October 2025. Me, Cursor, and Claude Sonnet. Ruby on Rails on Render. Tailwind.
+          Figma MCP so I wasn&apos;t redrawing every screen by hand. Shopify for CRM data.
+          Lob for print and postage.
         </p>
         <p>
-          It supported the three personas we kept talking about but never made concrete:
-          platform admin, advertiser, and agency partner. You could click through the
-          shape of the business instead of arguing about slides.
+          The brief I gave myself: Klaviyo for direct mail. Advertisers sign up, invite
+          people into a workspace, pull Shopify data, upload creative, send campaigns.
+          Platform admin / advertiser / agency partner as real personas, not sticky notes.
+        </p>
+        <p>
+          In 5 days I shipped a functioning v1—access control, usage-based billing, print
+          API. Ugly in places. Clickable everywhere that mattered. Leadership could argue
+          about a thing instead of a deck. Customers could poke it. I wrote about this on
+          the blog if you want the longer version.
         </p>
         <CaseFigure
           src="/thumbnails/navistone/prototype.png"
-          caption="Next-gen platform prototype — early multi-tenant surface"
-          note="Replace with higher-res walkthrough frames or embed /videos/navistone-prototype.mp4 when available"
+          caption="The Oct 2025 prototype"
+          note="Swap in walkthrough frames or /videos/navistone-prototype.mp4 when you've got them"
         />
         <p>
-          Leadership finally had something shared to react to. Customers could poke at it
-          too. That was the turning point. April 2026 we shipped the first internal
-          platform release.
+          April 2026 we cut the first internal platform release. Same company. Different
+          conversation.
         </p>
       </CaseSection>
 
-      <CaseSection id="rbac" title="RBAC is the product model">
+      <CaseSection id="rbac" title="Who owns what">
         <p>
-          Multi-tenancy fails if permissions are an afterthought. I wrote the product docs
-          for a three-layer model:
+          Multi-tenant means nothing if you can&apos;t explain who owns an account and who
+          is just visiting. I wrote the product docs for three layers:
         </p>
         <ul className="list-disc list-inside space-y-2">
           <li>
-            <strong className="font-medium">Platform</strong> — NaviStone operators who
-            configure the system and support tenants
+            <strong className="font-medium">Platform</strong> — us, configuring the system
+            and supporting tenants
           </li>
           <li>
-            <strong className="font-medium">Advertiser</strong> — brands that own audiences,
-            creative, and results
+            <strong className="font-medium">Advertiser</strong> — the brand that owns
+            audiences, creative, results
           </li>
           <li>
-            <strong className="font-medium">Agency</strong> — partners who work on behalf of
-            advertisers without owning the account
+            <strong className="font-medium">Agency</strong> — partners who operate on behalf
+            of an advertiser without becoming the owner
           </li>
         </ul>
         <p>
-          Access grants sit between those layers. Explicit. Revocable. Visible in the UI.
-          The hard part wasn&apos;t the matrix—it was making ownership and delegation
-          obvious to people who use this every day. Who owns this? Who can touch it? What
-          happens if I grant agency access?
+          Grants sit between those layers. You can see them. You can revoke them. The hard
+          part is the copy and the flows—making blast radius obvious to someone who lives
+          in this tool eight hours a day. Who owns this? Who can touch it? What did I just
+          give the agency?
         </p>
-        <CaseFigure caption="[Screenshot: RBAC / access grants UI — platform, advertiser, agency with grant flows]" />
+        <CaseFigure caption="[Screenshot: RBAC / access grants UI — platform, advertiser, agency]" />
       </CaseSection>
 
-      <CaseSection id="workspaces" title="Workspaces, analytics, house-file">
+      <CaseSection id="workspaces" title="The unglamorous stuff">
         <p>
-          Workspaces hold tenant context, people, and artifacts in one place. Without that,
-          multi-tenant work turns into a pile of tabs and tribal knowledge.
+          Workspaces keep tenant context, people, and artifacts from turning into tribal
+          knowledge and twenty browser tabs.
         </p>
         <p>
-          Analytics has to work for ~240 clients. I designed website and cross-channel
-          views ops and client teams can actually read—clear performance signals, not a
-          wall of charts.
+          Analytics has to work for ~240 clients. Website views. Cross-channel performance.
+          Ops and client teams need to read them without a custom report from someone on
+          our side every time.
         </p>
         <CaseFigure
           src="/thumbnails/navistone/website-analytics.jpg"
-          caption="Website analytics — visitor and behavioral views"
+          caption="Website analytics"
         />
         <CaseFigure
           src="/thumbnails/navistone/business-analytics.jpg"
-          caption="Business analytics — cross-channel performance"
+          caption="Business analytics"
         />
         <p>
-          House-file ingestion is the ugly, necessary work: FTP uploads, PII, validation,
-          failure states. We moved it toward self-serve. Progress and errors have to be
-          honest—this is not a flow you can paper over with a success toast.
+          House-file ingestion is FTP, PII, validation errors, and people who will blame
+          the UI when a file fails. We pushed it toward self-serve. Progress states have to
+          be boring and honest. No magic success toast on a dangerous upload.
         </p>
-        <CaseFigure caption="[Screenshot: House-file ingestion — upload/validation states, self-serve flow (no client PII)]" />
+        <CaseFigure caption="[Screenshot: House-file ingestion — upload/validation (no client PII)]" />
       </CaseSection>
 
       <CaseSection id="design-system" title="Iris, then Zenith">
         <p>
-          When I started, the UI was a frankenstein. In four weeks I stood up{" "}
-          <strong className="font-medium">Iris</strong>: Figma, Vue, Storybook. Enough
-          shared language for eng to stop reinventing buttons.
+          Day one UI was frankenstein. In four weeks I stood up Iris—Figma, Vue, Storybook—
+          so eng had one set of buttons instead of seventeen.
         </p>
         <CaseFigure
           src="/thumbnails/navistone/design-system.png"
-          caption="Iris design system — Figma + Vue + Storybook"
+          caption="Iris"
         />
         <p>
-          Later that became <strong className="font-medium">Zenith</strong>: Figma paired
-          with React/shadcn so design and code stay the same conversation. When you&apos;re
-          the only designer, a system that ships is how you keep up as the surface area
-          grows.
+          Zenith is the grown-up version: Figma next to React/shadcn. Design and code stay
+          in the same conversation. When you&apos;re solo, that&apos;s how you keep
+          shipping while the surface area explodes.
         </p>
-        <CaseFigure caption="[Screenshot: Zenith components in Figma alongside matching React/shadcn implementations]" />
+        <CaseFigure caption="[Screenshot: Zenith in Figma next to matching React/shadcn]" />
       </CaseSection>
 
-      <CaseSection id="iq-mail" title="Still shipping: IQ Mail, campaigns & segments">
+      <CaseSection id="iq-mail" title="Still shipping">
         <p>
-          2026 work is the marketing loop: IQ Mail, campaigns, segments. Still shipping.
-          Same rules as the platform—tenant-aware objects, careful audience defaults, and
-          a path from segment to campaign that doesn&apos;t require a services team to
-          finish the job.
+          2026 is IQ Mail, campaigns, segments. Not done. Same rules as the platform work:
+          tenant-aware objects, careful audience defaults, segment → campaign without
+          waiting on services to finish the job.
         </p>
         <CaseFigure caption="[Screenshot: IQ Mail / campaign builder]" />
-        <CaseFigure caption="[Screenshot: Segment builder — rules, previews, tenant-safe defaults]" />
+        <CaseFigure caption="[Screenshot: Segment builder]" />
       </CaseSection>
 
-      <CaseSection id="outcome" title="What changed">
+      <CaseSection id="outcome" title="Where we are">
         <p>
-          We have a real multi-tenant model, a design system that lives in production code,
-          analytics across the client base, and self-serve paths that used to stop at
-          services. The Oct 2025 prototype is still the clearest example of how I work:
-          when people are stuck arguing, ship something they can click.
+          Clickable multi-tenant product. Design system in production code. Analytics
+          across the client base. Self-serve paths that used to dead-end in someone&apos;s
+          queue. The five-day prototype is still the clearest proof I&apos;ve got: if the
+          company is stuck arguing, build the thing.
         </p>
         <p className="pt-2">
           <Link href="/work/mailchimp/analytics-dashboard" className="underline">
