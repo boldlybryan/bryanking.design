@@ -39,7 +39,7 @@ export default function Home() {
             title="Iris Design System"
             description="Complete design system in Figma + Vue + Storybook, built in 4 weeks"
             image="/thumbnails/navistone/design-system.png"
-            link="/work/navistone#design-system"
+            link="/work/navistone/iris"
           />
         </div>
       </div>

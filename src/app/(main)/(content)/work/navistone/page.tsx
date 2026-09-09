@@ -154,23 +154,25 @@ export default function NavistonePage() {
         <CaseFigure caption="House-file ingestion (no PII)" />
       </CaseSection>
 
-      <CaseSection id="systems" title="Iris, then Zenith">
+      <CaseSection id="zenith" title="Zenith — design system as shipping infrastructure">
         <p>
-          When I joined, the UI was a frankenstein of inherited patterns. Early on I stood
-          up Iris: a complete design system in Figma, Vue, and Storybook in four
-          weeks—enough coherence to stop the bleeding.
+          On the new multi-tenant platform (NXP), I built Zenith: a Figma↔code system
+          grounded in shadcn/React patterns (@zenith/ui), so design and implementation
+          stayed the same conversation. Auth, settings, admin, and core workflows migrated
+          onto it as the surface area grew.
         </p>
-        <CaseFigure
-          src="/thumbnails/navistone/design-system.png"
-          caption="Iris"
-        />
         <p>
-          As the platform matured, Iris gave way to Zenith: a Figma↔code system grounded in
-          shadcn/React patterns, so design and implementation stayed the same conversation.
           The system wasn&apos;t a side quest—it was how a solo design owner stayed
-          unblocked while the surface area grew.
+          unblocked while shipping production UI alongside eng.
         </p>
         <CaseFigure caption="Zenith Figma ↔ React/shadcn" />
+        <p>
+          Earlier design-system work on the legacy platform (Iris) is a separate case:{" "}
+          <Link href="/work/navistone/iris" className="underline">
+            Iris design system
+          </Link>
+          .
+        </p>
       </CaseSection>
 
       <CaseSection id="shipping" title="Still shipping: IQ Mail, campaigns & segments">
