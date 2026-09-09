@@ -61,9 +61,8 @@ export default function CreativeAssistantPage() {
 
       <CaseSection id="brand-kit" title="Brand kit import">
         <p>
-          Brand kit isn&apos;t account decoration. It&apos;s training data with a UI.
-          People need to know what matters, what&apos;s optional, and how those inputs will
-          constrain creative later.
+          Brand kit is training data with a UI. People need to know what matters,
+          what&apos;s optional, and how those inputs will constrain creative later.
         </p>
         <CaseFigure
           src="/thumbnails/mailchimp/import-brand.png"

@@ -83,7 +83,7 @@ export default function AnalyticsDashboardPage() {
         <p>
           This lived inside Mailchimp&apos;s design org. Critiques with a design manager and
           peers. Shared design system. PM and eng with their own roadmaps. Tradeoffs got
-          socialized early or they died in build.
+          aired early or they died in build.
         </p>
         <p>
           After a reorg I led the surface solo for about six to eight weeks, then onboarded
