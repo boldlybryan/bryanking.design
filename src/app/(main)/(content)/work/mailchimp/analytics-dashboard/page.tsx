@@ -11,18 +11,18 @@ import {
 export const metadata: Metadata = {
   title: "Mailchimp Marketing Dashboard | Bryan King",
   description:
-    "Mailchimp's first aggregated marketing analytics dashboard—default landing for millions of users, built under real date-range constraints.",
+    "Mailchimp's first cross-campaign analytics view, shipped to millions of users.",
 };
 
 export default function AnalyticsDashboardPage() {
   return (
     <article className="pr-8 pb-8">
       <CaseHeader
-        title="Mailchimp's first aggregated marketing dashboard"
+        title="Marketing Dashboard"
         company="Intuit Mailchimp"
         timeline="2021–2022"
         role="Senior Product Designer (contract)"
-        summary="Analytics lived inside individual campaigns. I designed the first cross-campaign dashboard, and it became the default landing page for millions of users. Backend date-range limits shaped half the product decisions."
+        summary="Mailchimp's first cross-campaign analytics view, shipped to millions of users"
       />
 
       <CaseMetaList
@@ -32,76 +32,42 @@ export default function AnalyticsDashboardPage() {
             value: "First aggregated analytics view; default landing",
           },
           {
-            label: "Users",
+            label: "Audience",
             value: "Millions of Mailchimp customers",
-          },
-          {
-            label: "Hard constraint",
-            value: "Backend limits on date ranges and comparisons",
-          },
-          {
-            label: "Team",
-            value: "Design org with critiques, PM, eng; led solo 6–8 weeks post-reorg, then onboarded two designers",
           },
         ]}
       />
 
-      <CaseSection id="context" title="The problem">
-        <p>
-          Customers don&apos;t run a business one campaign at a time. The product made them
-          act like they did. Performance hid behind individual sends. Want a period
-          comparison? Screenshot a few screens or dump CSV into a spreadsheet.
-        </p>
-        <p>
-          We needed one place that answered &ldquo;how are we doing?&rdquo; honestly enough
-          to be the first screen people saw after login.
-        </p>
-      </CaseSection>
-
-      <CaseSection id="constraints" title="Date ranges were the real design problem">
-        <p>
-          The backend couldn&apos;t support every range and comparison people wanted. If we
-          faked completeness, the dashboard would train people to distrust it. So the UI
-          had to show what the system could actually compute—clear range controls,
-          aggregation rules that matched the data, and no pretend flexibility.
-        </p>
+      <CaseSection id="notes" title="Notes">
+        <ul className="list-disc list-inside space-y-2">
+          <li>
+            Embedded on multi-designer product teams; design critiques, design manager, peer
+            designers, researchers, PMs, eng; only contractor in the department
+          </li>
+          <li>
+            Shipped Mailchimp&apos;s first aggregated Marketing Dashboard to millions —
+            most-requested analytics after a year of blockers; became the default analytics
+            landing
+          </li>
+          <li>
+            Led Marketing Dashboard execution solo for 6–8 weeks post-reorg, then onboarded
+            and aligned two new designers while still hitting the mid-summer ship date
+          </li>
+          <li>
+            Still need my own write-up on the date-range constraints and what we fought with
+            eng about.
+          </li>
+        </ul>
         <CaseFigure
           src="/thumbnails/mailchimp/marketing-dashboard.png"
-          caption="Marketing Dashboard — aggregated performance as the default landing"
-          note="Add annotated frames: date-range controls, empty/loading/error, drill-through to campaign detail"
+          caption="Marketing Dashboard"
+          note="Need annotated frames: date ranges, empty/loading/error, drill-through"
         />
-        <p>
-          Hierarchy was simple on purpose: how am I doing, then compare, then dig into a
-          campaign. Empty states for new accounts. Drill-through into existing campaign
-          analytics without inventing a second mental model.
-        </p>
-        <CaseFigure caption="[Screenshot: Date-range constraint UI — limits shown clearly]" />
+        <CaseFigure caption="[Screenshot: Date-range limits shown clearly]" />
         <CaseFigure caption="[Screenshot: Dashboard → campaign drill-through]" />
       </CaseSection>
 
-      <CaseSection id="team" title="How the work actually happened">
-        <p>
-          This lived inside Mailchimp&apos;s design org. Critiques with a design manager and
-          peers. Shared design system. PM and eng with their own roadmaps. Tradeoffs got
-          aired early or they died in build.
-        </p>
-        <p>
-          After a reorg I led the surface solo for about six to eight weeks, then onboarded
-          two designers onto the work. Same critique culture, same system constraints—
-          just more hands once the direction was set.
-        </p>
-        <p>
-          Visual design stayed in Mailchimp&apos;s system. The new thing was the product
-          model: performance across campaigns, not only inside them.
-        </p>
-      </CaseSection>
-
-      <CaseSection id="outcome" title="What shipped">
-        <p>
-          First aggregated analytics view at Mailchimp. Shipped as the default landing for
-          millions of users.
-        </p>
-        <p className="pt-2">
+      <p className="mb-12">
           <Link href="/work/mailchimp/custom-reports" className="underline">
             Custom Reports
           </Link>
@@ -112,7 +78,6 @@ export default function AnalyticsDashboardPage() {
             Creative Assistant
           </Link>
         </p>
-      </CaseSection>
 
       <CaseNextSteps
         items={[
