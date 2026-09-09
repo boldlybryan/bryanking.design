@@ -7,8 +7,8 @@ export default function Home() {
     <div className="container">
       <div className="mt-32 mb-8 pb-8 xl:mt-64 xl:mb-8 xl:pb-16 grid-home border-b border-neutral-800">
         <div className="xl:col-start-3 col-span-2">
-          <h1 className="supertitle mb-2">Product Designer & Engineer with a decade of shipping B2B software.</h1>
-          <p className="xl:text-lg">Track record of being early: design systems (2017), accessibility (2018), AI tooling (2021). Now I prototype in code to de-risk product decisions before they're expensive.</p>
+          <h1 className="supertitle mb-2">Product Designer &amp; Engineer with a decade of shipping B2B software.</h1>
+          <p className="xl:text-lg">Track record of being early: design systems (2017), accessibility (2018), AI tooling (2021). Now I prototype in code to de-risk product decisions before they&apos;re expensive.</p>
         </div>
       </div>
       <div>
@@ -18,28 +18,28 @@ export default function Home() {
         </div>
         <div className="grid-home mb-8 pb-10 border-b border-neutral-800">
           <CasePreview
-            title="Next-gen Prototype"
-            description="A Ruby on Rails proof-of-concept to align the business for on the next 10 years"
+            title="Multi-tenant Platform"
+            description="Agency ops tool → multi-tenant SaaS: RBAC, workspaces, Zenith, and the Oct 2025 prototype that aligned the company"
             image="/thumbnails/navistone/prototype.png"
-            link="#"
+            link="/work/navistone"
           />
           <CasePreview
             title="Website Analytics"
             description="Real-time visitor tracking and behavioral insights dashboard"
             image="/thumbnails/navistone/website-analytics.jpg"
-            link="#"
+            link="/work/navistone#workspaces"
           />
           <CasePreview
             title="Business Analytics"
             description="Cross-channel performance metrics for campaign optimization"
             image="/thumbnails/navistone/business-analytics.jpg"
-            link="#"
+            link="/work/navistone#workspaces"
           />
           <CasePreview
             title="Iris Design System"
             description="Complete design system in Figma + Vue + Storybook, built in 4 weeks"
             image="/thumbnails/navistone/design-system.png"
-            link="#"
+            link="/work/navistone#design-system"
           />
         </div>
       </div>
@@ -65,13 +65,13 @@ export default function Home() {
             title="Creative Assistant Onboarding"
             description="AI-powered brand asset training and creative guardrails (2021, pre-ChatGPT)"
             image="/thumbnails/mailchimp/import-brand.png"
-            link="/work/mailchimp/creative-assistant-onboarding"
+            link="/work/mailchimp/creative-assistant#brand-kit"
           />
           <CasePreview
             title="Creative Assistant Sample Brand"
             description="Interactive sample brand for experimenting with AI creative tools"
             image="/thumbnails/mailchimp/sample-brand.png"
-            link="/work/mailchimp/creative-assistant-sample"
+            link="/work/mailchimp/creative-assistant#sample-brand"
           />
         </div>
       </div>
@@ -85,25 +85,25 @@ export default function Home() {
             title="Flagstar.com Redesign"
             description="Responsive redesign with WCAG AA compliance across thousands of pages"
             image="/thumbnails/flagstar/home-page.png"
-            link="#"
+            link="/work/flagstar"
           />
           <CasePreview
             title="Flagstar.com Search"
             description="Site-wide search with filtering and relevance ranking"
             image="/thumbnails/flagstar/search-results.png"
-            link="#"
+            link="/work/flagstar#tools"
           />
           <CasePreview
             title="Regionalized Product Pages"
             description="Location-based product availability and routing"
             image="/thumbnails/flagstar/product-page.png"
-            link="#"
+            link="/work/flagstar#tools"
           />
           <CasePreview
             title="Branch & ATM Locator"
             description="Interactive map with filtering, directions, and branch details"
             image="/thumbnails/flagstar/locator.png"
-            link="#"
+            link="/work/flagstar#tools"
           />
         </div>
       </div>
