@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  CaseCallout,
   CaseFigure,
   CaseHeader,
   CaseMetaList,
@@ -12,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Mailchimp Marketing Dashboard | Bryan King",
   description:
-    "Case study: Mailchimp's first aggregated marketing analytics dashboard—default landing experience for millions of users, designed inside a large design org.",
+    "Mailchimp's first aggregated marketing analytics dashboard—default landing for millions of users, built under real date-range constraints.",
 };
 
 export default function AnalyticsDashboardPage() {
@@ -22,106 +21,89 @@ export default function AnalyticsDashboardPage() {
         title="Mailchimp's first aggregated marketing dashboard"
         company="Intuit Mailchimp"
         timeline="2021–2022"
-        role="Senior Product Designer (contract) — product design within a multi-squad design org"
-        summary="Mailchimp's analytics lived in campaign-shaped silos. I designed the first cross-campaign marketing dashboard that became the default landing experience for millions of users—working through hard technical constraints on date ranges and the reality of shipping inside a large design organization."
+        role="Senior Product Designer (contract)"
+        summary="Analytics lived inside individual campaigns. I designed the first cross-campaign dashboard, and it became the default landing page for millions of users. Backend date-range limits shaped half the product decisions."
       />
 
       <CaseMetaList
         items={[
           {
-            label: "Outcome",
-            value: "First aggregated analytics view; shipped as default landing",
+            label: "Shipped",
+            value: "First aggregated analytics view; default landing",
           },
           {
             label: "Users",
             value: "Millions of Mailchimp customers",
           },
           {
-            label: "Constraints",
-            value: "Backend date-range limits, legacy analytics IA, multi-squad delivery",
+            label: "Hard constraint",
+            value: "Backend limits on date ranges and comparisons",
           },
           {
-            label: "Collaboration",
-            value: "Design critiques, PM/eng pairing, shared Mailchimp design system",
+            label: "Team",
+            value: "Design org with critiques, PM, eng; led solo 6–8 weeks post-reorg, then onboarded two designers",
           },
         ]}
       />
 
       <CaseSection id="context" title="The problem">
         <p>
-          Marketers didn&apos;t experience their business one campaign at a time, but the
-          product forced them to. Performance lived behind individual sends. Comparing
-          periods, spotting regressions, and answering &ldquo;how are we doing?&rdquo;
-          meant stitching screenshots together or exporting to spreadsheets.
+          Customers don&apos;t run a business one campaign at a time. The product made them
+          act like they did. Performance hid behind individual sends. Want a period
+          comparison? Screenshot a few screens or dump CSV into a spreadsheet.
         </p>
         <p>
-          The opportunity was straightforward and politically loaded: give customers a
-          single aggregated view of marketing performance—and make it trustworthy enough
-          to become the first thing they see.
+          We needed one place that answered &ldquo;how are we doing?&rdquo; honestly enough
+          to be the first screen people saw after login.
         </p>
       </CaseSection>
 
-      <CaseSection id="collaboration" title="Design-org context">
+      <CaseSection id="constraints" title="Date ranges were the real design problem">
         <p>
-          This was not a lone-wolf project. I worked as a senior IC inside Mailchimp&apos;s
-          design organization—critiques, design-system constraints, PM partners, and
-          engineering teams with their own roadmaps. The craft bar was high; so was the
-          need to socialize tradeoffs early.
-        </p>
-        <CaseCallout>
-          <p>
-            I call this out explicitly because my NaviStone work is sole-designer by
-            necessity. Mailchimp is the counterexample: I know how to take feedback, share
-            ownership of a surface, and ship through organizational reality—not around it.
-          </p>
-        </CaseCallout>
-      </CaseSection>
-
-      <CaseSection id="constraints" title="Designing inside technical constraints">
-        <p>
-          The hardest product decisions weren&apos;t visual. Backend realities limited how
-          date ranges could be queried and compared. An honest dashboard that lied about
-          completeness would be worse than no dashboard at all.
-        </p>
-        <p>
-          We designed the experience around those constraints instead of papering over
-          them: clear range affordances, aggregation rules that matched what the system
-          could actually compute, and an information hierarchy that answered the first
-          questions marketers ask before inviting them deeper into campaign detail.
+          The backend couldn&apos;t support every range and comparison people wanted. If we
+          faked completeness, the dashboard would train people to distrust it. So the UI
+          had to show what the system could actually compute—clear range controls,
+          aggregation rules that matched the data, and no pretend flexibility.
         </p>
         <CaseFigure
           src="/thumbnails/mailchimp/marketing-dashboard.png"
-          caption="Marketing Dashboard — aggregated performance as the default landing experience"
+          caption="Marketing Dashboard — aggregated performance as the default landing"
           note="Add annotated frames: date-range controls, empty/loading/error, drill-through to campaign detail"
         />
+        <p>
+          Hierarchy was simple on purpose: how am I doing, then compare, then dig into a
+          campaign. Empty states for new accounts. Drill-through into existing campaign
+          analytics without inventing a second mental model.
+        </p>
+        <CaseFigure caption="[Screenshot: Date-range constraint UI — limits shown clearly]" />
+        <CaseFigure caption="[Screenshot: Dashboard → campaign drill-through]" />
       </CaseSection>
 
-      <CaseSection id="approach" title="Approach">
+      <CaseSection id="team" title="How the work actually happened">
         <p>
-          I framed the dashboard as a landing narrative, not a widget dump: orientation
-          first (how am I doing?), then comparison, then investigation. That meant ruthless
-          prioritization of metrics, careful empty states for newer accounts, and a path
-          into existing campaign analytics without fracturing the mental model.
+          This lived inside Mailchimp&apos;s design org. Critiques with a design manager and
+          peers. Shared design system. PM and eng with their own roadmaps. Tradeoffs got
+          socialized early or they died in build.
         </p>
         <p>
-          Visual design stayed inside Mailchimp&apos;s system so the new surface felt native
-          on day one. The novelty was the product model—aggregated marketing truth—not a
-          custom visual language.
+          After a reorg I led the surface solo for about six to eight weeks, then onboarded
+          two designers onto the work. Same critique culture, same system constraints—
+          just more hands once the direction was set.
         </p>
-        <CaseFigure caption="[Screenshot: Date-range constraint UI — how limits were communicated without breaking trust]" />
-        <CaseFigure caption="[Screenshot: Dashboard → campaign drill-through]" />
+        <p>
+          Visual design stayed in Mailchimp&apos;s system. The new thing was the product
+          model: performance across campaigns, not only inside them.
+        </p>
       </CaseSection>
 
       <CaseSection id="outcome" title="What shipped">
         <p>
-          The Marketing Dashboard shipped as Mailchimp&apos;s first aggregated analytics
-          view and became the default landing experience for millions of users. It
-          established a foundation for how Mailchimp talks about performance across
-          campaigns—not just inside them.
+          First aggregated analytics view at Mailchimp. Shipped as the default landing for
+          millions of users.
         </p>
         <p className="pt-2">
           <Link href="/work/mailchimp/custom-reports" className="underline">
-            Next: Custom Reports
+            Custom Reports
           </Link>
           <span className="mx-2 opacity-50" aria-hidden>
             ·
