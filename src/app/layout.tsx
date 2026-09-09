@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -43,6 +44,12 @@ export default function RootLayout({
             {children}
           </ThemeProvider>
         </main>
+        <Script
+          src="https://cdn.usefathom.com/script.js"
+          data-site="FFORNEGQ"
+          data-spa="auto"
+          strategy="afterInteractive"
+        />
         <Analytics />
       </body>
     </html>
