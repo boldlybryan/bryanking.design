@@ -41,10 +41,6 @@ export default function FlagstarPage() {
       <CaseSection id="notes" title="Notes">
         <ul className="list-disc list-inside space-y-2">
           <li>
-            Sole front-end owner for the bank&apos;s web properties and martech tooling
-            (2015–2021)
-          </li>
-          <li>
             Design system from scratch, token white-label for two acquisitions, full rebrand
             across thousands of pages
           </li>
