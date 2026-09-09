@@ -56,8 +56,12 @@ function buildSeries(
   const seed = base * rangeFactor * campaignFactor * audienceFactor;
 
   return labels.map((_, i) => {
-    const wave = 1 + Math.sin(i * 1.3 + seed) * 0.12 + (i % 3) * 0.04;
-    return Math.max(0, seed * wave);
+    const wave =
+      0.72 +
+      Math.sin(i * 1.7 + seed * 0.15) * 0.22 +
+      Math.cos(i * 0.9 + seed) * 0.12 +
+      (i % 2) * 0.08;
+    return Math.max(seed * 0.35, seed * wave);
   });
 }
 
